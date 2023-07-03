@@ -1,7 +1,11 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: Vazir-Bold;
 }
-
+@font-face {
+    font-family: 'Vazir-Bold';
+    src: url('./Vazir-Bold.ttf') format('ttf'), url('./Vazir-Bold.ttf') format('truetype');
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -18,5 +22,6 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: Vazir-Bold;
 }
