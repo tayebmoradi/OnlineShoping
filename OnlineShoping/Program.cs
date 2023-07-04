@@ -1,3 +1,6 @@
+using Services.Interface;
+using Services.Service;
+
 namespace OnlineShoping
 {
     public class Program
@@ -8,6 +11,7 @@ namespace OnlineShoping
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
