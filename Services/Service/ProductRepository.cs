@@ -10,20 +10,32 @@ namespace Services.Service
 {
     public class ProductRepository : IProductRepository
     {
-        public static IEnumerable<Product> Product ;
+        public static IList<Product> Product ;
         public ProductRepository() 
         {
             Product = new List<Product>() 
             {
-                new Product(){ProductId = 1 , Name = "aquoa" , Barecode = "123456", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/1.jpg"},
+                new Product(){ProductId = 1 , Name = "aquoa" , Barecode = "123456", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =20000,Photo="./wwwroot/img/1.jpg"},
                 new Product(){ProductId = 2 , Name = "aquoa" , Barecode = "123451", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/2.jpg"},
                 new Product(){ProductId = 3 , Name = "aquoa" , Barecode = "123452", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/3.jpg"},
                 new Product(){ProductId = 4 , Name = "aquoa" , Barecode = "123453", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/4.jpg"},
             };
         }
+
+        public Product DeleteProduct(int Id)
+        {
+            Product DeleteId = Product.FirstOrDefault(x => x.ProductId == Id);
+            if (DeleteId != null)
+            {
+                Product.Remove(DeleteId);
+            }
+            return null;
+        }
+
         public IEnumerable<Product> GetAllProduct()
         {
-            throw new NotImplementedException();
+           var ProductList =  Product.ToList();
+            return ProductList;
         }
 
         public Product GetProductById(int id)

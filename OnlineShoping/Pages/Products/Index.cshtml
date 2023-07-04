@@ -76,8 +76,10 @@
                                         </div>
                                     </div>
                                 </div><div class="d-flex ai-center jc-between pl-5 gap-4">
-                                    <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">حذف </button>
-                                    <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white"> ویرایش</button>
+                                    <form method="post" asp-page="/Product/Index" asp-route-ID="@item.ProductId">
+                                            <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">حذف </button>
+                                    </form>
+                                     <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white"> ویرایش</button>
                                     <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">بیشتر ...</button>
                                 </div>
                                

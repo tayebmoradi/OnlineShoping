@@ -13,12 +13,20 @@ namespace OnlineShoping.Pages.Products
         {
             _productRepository = productRepository;
         }
-        
+        [BindProperty]
         public IEnumerable<Product> products { get; set; }
 
         public void OnGet()
         {
          products = _productRepository.GetAllProduct().ToList();
+        }
+
+
+        public IActionResult OnPost(int id)
+        {
+            _productRepository.DeleteProduct(id);
+            return Page();
+
         }
     }
 }
