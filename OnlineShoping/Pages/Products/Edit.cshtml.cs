@@ -25,6 +25,7 @@ namespace OnlineShoping.Pages.Products
         public Product Product { get; set; }
         public void OnGet(int id)
         {
+            
             if(id  == 0)
             {
                 Product = null;

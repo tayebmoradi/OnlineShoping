@@ -15,9 +15,15 @@ namespace OnlineShoping.Pages.Products
         }
         [BindProperty]
         public Product product { get; set; }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
-            product = _productRepository.GetProductById(id);
+          product = _productRepository.GetProductById(id);
+            if (product == null)
+            {
+                return RedirectToPage("NotFound");
+            }
+            return Page();
+           
         }
     }
 }
