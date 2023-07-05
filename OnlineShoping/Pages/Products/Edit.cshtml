@@ -16,45 +16,37 @@
             {
                 <h4 class="header-title m-t-0 m-b-30">فرم ویرایش محصول</h4>
             }
-
+            
             <form method="POST" id="frmContact" enctype="multipart/form-data">
                 <div class="form-group">
                     @Html.HiddenFor(o => o.Product.ProductId)
                     <input hidden asp-for="Product.Photo" />
 
                     <label for="Url"> نام محصول *</label>
-                    <input type="text" name="Product.Name" parsley-trigger="change" required
+                    <input type="text" name="Product.Name" parsley-trigger="change" 
                            value="@Html.ValueFor(x => x.Product.Name)"
                            placeholder=" نام محصول را وارد کنید" class="form-control" id="Url">
-                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
-                        @Html.ValidationMessageFor(x => x.Product.Name)
-                    </p>
+                    <span asp-validation-for="Product.Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="Url"> قیمت محصول *</label>
-                    <input type="text" name="Product.Price" parsley-trigger="change" required
+                    <input type="text" name="Product.Price" parsley-trigger="change" 
                            value="@Html.ValueFor(x => x.Product.Price)"
                            placeholder=" قیمت محصول را وارد کنید" class="form-control" id="Url">
-                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
-                        @Html.ValidationMessageFor(x => x.Product.Price)
-                    </p>
+                    <span asp-validation-for="Product.Price" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="Url"> بارکد محصول *</label>
-                    <input type="text" name="Product.Barecode" parsley-trigger="change" required
+                    <input type="text" name="Product.Barecode" parsley-trigger="change" 
                            value="@Html.ValueFor(x => x.Product.Barecode)"
                            placeholder="بارکد محصول را وارد کنید" class="form-control" id="Url">
-                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
-                        @Html.ValidationMessageFor(x => x.Product.Barecode)
-                    </p>
+                    <span asp-validation-for="Product.Barecode" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="" class="custom-file-label"> آپلود تصویر *</label>
-                    <input type="file" asp-for="Photo"  parsley-trigger="change" required
-                           placeholder="بارکد محصول را وارد کنید" class="custom-file-input form-control" id="Url">
-                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
-                        @Html.ValidationMessageFor(x => x.Product.Barecode)
-                    </p>
+                    <input type="file" asp-for="Photo"  parsley-trigger="change" 
+                           placeholder="تصویر محصول را وارد کنید" class="custom-file-input form-control" id="Url">
+                    <span asp-validation-for="Product.Photo" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="Url"> تصویر محصول *</label>
@@ -67,9 +59,7 @@
                               value=""
                               class="form-control" id="TilteText">@Html.ValueFor(x => x.Product.Description) </textarea>
 
-                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
-                        @Html.ValidationMessageFor(x => x.Product.Description)
-                    </p>
+                    <span asp-validation-for="Product.Description" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group text-right m-b-0">
