@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model OnlineShoping.Pages.Products.IndexModel
 @{
 
@@ -26,7 +26,7 @@
     <button type="submit" class="btn btn-dark">ایجاد</button>
 </a>
 
-<div class="d-flex gap-1">
+<div class="d-flex gap-1" style="height:100vh;">
     @foreach (var item in Model.products)
     {
         var PhotoImg = "/css/" + (@item.Photo ?? "noimage.jpg");
@@ -61,7 +61,7 @@
                             </div>
                             <div class="grow-1 d-flex flex-column ai-stretch jc-start">
                                 <div class="d-flex ai-center jc-start gap-1 flex-wrap mb-1"><br><br></div>
-                                <div><h4 style="font-size:14px;">@item.Description</h4></div>
+                                <div><h4 style="font-size:14px;">@item.Name</h4></div>
                                 <div class="mb-1 d-flex ai-center jc-between">
                                     <div class="d-flex ai-center" data-ab-id="">
                                         <p class="text-caption visibility-hidden"></p><br>
