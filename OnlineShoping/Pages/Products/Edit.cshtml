@@ -1,6 +1,7 @@
 ﻿@page "/product/edit/{id?}"
 @model OnlineShoping.Pages.Products.EditModel
 @{
+    var PhotoImg = "/css/" + (@Model.Product.Photo ?? "noimage.jpg");
 }
 
 
@@ -16,9 +17,10 @@
                 <h4 class="header-title m-t-0 m-b-30">فرم ویرایش لینک خبر</h4>
             }
 
-            <form method="POST" id="frmContact">
+            <form method="POST" id="frmContact" enctype="multipart/form-data">
                 <div class="form-group">
                     @Html.HiddenFor(o => o.Product.ProductId)
+                    <input hidden asp-for="Product.Photo" />
 
                     <label for="Url"> نام محصول *</label>
                     <input type="text" name="Product.Name" parsley-trigger="change" required
@@ -47,14 +49,18 @@
                     </p>
                 </div>
                 <div class="form-group">
-                    <label for="Url"> تصویر محصول *</label>
-                    <input type="text" name="Product.Photo" parsley-trigger="change" required
-                           value="@Html.ValueFor(x => x.Product.Photo)"
-                           placeholder="تصویر محصول را وارد کنید" class="form-control" id="Url">
+                    <label for="" class="custom-file-label"> آپلود تصویر *</label>
+                    <input type="file" asp-for="Photo"  parsley-trigger="change" required
+                           placeholder="بارکد محصول را وارد کنید" class="custom-file-input form-control" id="Url">
                     <p class="text-muted m-b-20 font-13 " style="color: red!important;">
-                        @Html.ValidationMessageFor(x => x.Product.Photo)
+                        @Html.ValidationMessageFor(x => x.Product.Barecode)
                     </p>
                 </div>
+                <div class="form-group">
+                    <label for="Url"> تصویر محصول *</label>
+                    <img src="@PhotoImg" width="150px" />
+                </div>
+
                 <div class="form-group">
                     <label for="Title"> توضیحات کوتاه *</label>
                     <textarea type="text" dir="rtl" name="Product.Description" parsley-trigger="change" required
@@ -91,5 +97,16 @@
     </div><!-- end col -->
 
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("Change" , function(){
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}
 
 

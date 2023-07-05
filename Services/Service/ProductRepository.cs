@@ -17,10 +17,10 @@ namespace Services.Service
         {
             Product = new List<Product>()
             {
-                new Product(){ProductId = 1 , Name = "aquoa" , Barecode = "123456", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =20000,Photo="./wwwroot/img/1.jpg"},
-                new Product(){ProductId = 2 , Name = "aquoa" , Barecode = "123451", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/2.jpg"},
-                new Product(){ProductId = 3 , Name = "aquoa" , Barecode = "123452", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/3.jpg"},
-                new Product(){ProductId = 4 , Name = "aquoa" , Barecode = "123453", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =10000,Photo="./wwwroot/img/4.jpg"},
+                new Product(){ProductId = 1 , Name = "aquoa" , Barecode = "123456", Description = "تنگ ماهی مدل استوانه شیشه ای" , Price =20000,Photo="1.webp"},
+                new Product(){ProductId = 2 , Name = "aquoa" , Barecode = "123451", Description = "آکواریوم دلسا مدل k320" , Price =10000,Photo="2.webp"},
+                new Product(){ProductId = 3 , Name = "aquoa" , Barecode = "123452", Description = "آکواریوم کد Aqua03 به همراه شن و گیاه" , Price =10000,Photo="3.webp"},
+                new Product(){ProductId = 4 , Name = "aquoa" , Barecode = "123453", Description = "آکواریوم مکانیزه ماهیران مدل MA-21 حجم 9 لیتر" , Price =10000,Photo="4.jpg"},
             };
         }
 
@@ -81,5 +81,8 @@ namespace Services.Service
 
             return ProdtctId;
         }
+
+
+      
     }
 }

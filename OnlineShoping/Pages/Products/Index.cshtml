@@ -1,6 +1,7 @@
 ﻿@page
 @model OnlineShoping.Pages.Products.IndexModel
 @{
+    
 }
 
 <style>
@@ -28,6 +29,7 @@
 <div class="d-flex gap-1">
     @foreach (var item in Model.products)
     {
+        var PhotoImg = "/css/" + (@item.Photo ?? "noimage.jpg");
         <div class="product-list_ProductList__item__LiiNI" data-product-index="20">
             <a class="d-block pointer pos-relative bg-000 overflow-hidden grow-1 py-3 px-4 px-2-lg h-full-md styles_VerticalProductCard--hover__ud7aD" style="border:1px solid ; box-shadow:1px 2px 2px 2px" target="_blank">
                 <div class="">
@@ -46,7 +48,7 @@
                                                 <picture>
                                                     <source type="image/webp">
                                                     <source type="image/jpeg">
-                                                    <img class="w-100 lazyload radius-medium d-inline-block" src="./css/1.webp" style="object-fit: contain;" alt="تنگ ماهی مدل استوانه شیشه ای" width="240" height="240">
+                                                    <img class="w-100 lazyload radius-medium d-inline-block" src="@PhotoImg" style="object-fit: contain;" alt="تنگ ماهی مدل استوانه شیشه ای" width="240" height="240">
                                                 </picture>
                                             </div>
                                         </div>

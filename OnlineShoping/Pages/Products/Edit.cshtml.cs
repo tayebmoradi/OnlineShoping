@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Models;
@@ -8,10 +9,16 @@ namespace OnlineShoping.Pages.Products
     public class EditModel : PageModel
     {
         private readonly IProductRepository _productRepository;
-        public EditModel(IProductRepository productRepository)
+        private readonly IWebHostEnvironment webHostEnvironment;
+
+        public EditModel(IProductRepository productRepository,IWebHostEnvironment webHostEnvironment)
         {
             _productRepository = productRepository;
+            this.webHostEnvironment = webHostEnvironment;
         }
+
+        [BindProperty]
+        public IFormFile Photo { get; set; }
         [BindProperty]
         public int ProductId { get; set; }
         [BindProperty]
@@ -24,9 +31,21 @@ namespace OnlineShoping.Pages.Products
             }
            Product =  _productRepository.GetProductById(id);
         }
-
-        public IActionResult OnPost()
+       
+        public IActionResult OnPost(Product product)
         {
+            
+            if(Photo != null)
+            {
+                if(product.Photo != null)
+                {
+                    string FileFolder =
+                    Path.Combine(webHostEnvironment.WebRootPath, "css",product.Photo);
+                    System.IO.File.Delete(FileFolder);
+
+                }
+                Product.Photo = ProcessUploadFile();
+            }
             if (Product.ProductId == 0)
             {
                 Product = _productRepository.AddProduct(Product);
@@ -40,6 +59,23 @@ namespace OnlineShoping.Pages.Products
               
             }
             
+        }
+        private string ProcessUploadFile()
+        {
+            string uniqueFileName = null;
+
+            if (Photo != null)
+            {
+                string UploadsFolder =
+                    Path.Combine(webHostEnvironment.WebRootPath, "css");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
+                string filePath = Path.Combine(UploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    Photo.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
         }
     }
 }
