@@ -1,7 +1,7 @@
 ﻿@page
 @model OnlineShoping.Pages.Products.IndexModel
 @{
-    
+
 }
 
 <style>
@@ -87,12 +87,13 @@
                                             <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">حذف </button>
                                         </form>
 
-                                        <form method="get" asp-page="/Products/Edit"  asp-route-ID="@item.ProductId">
+                                        <form method="get" asp-page="/Products/Edit" asp-route-ID="@item.ProductId">
                                             <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">ویرایش </button>
                                         </form>
-                                        <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">بیشتر ...</button>
+                                        <form method="get" asp-page="/Products/Details" asp-route-ID="@item.ProductId">
+                                            <button type="submit" class="btn btn-light border-1" style="border:1px solid #545678; background-color:white">بیشتر ...</button>
+                                        </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
