@@ -11,7 +11,7 @@ namespace OnlineShoping
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 

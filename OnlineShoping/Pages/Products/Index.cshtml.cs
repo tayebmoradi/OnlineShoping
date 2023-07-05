@@ -25,7 +25,7 @@ namespace OnlineShoping.Pages.Products
         public IActionResult OnPost(int id)
         {
             _productRepository.DeleteProduct(id);
-            return Page();
+            return RedirectToPage("index",products);
 
         }
     }

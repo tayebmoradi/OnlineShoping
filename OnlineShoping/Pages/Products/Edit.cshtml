@@ -1,0 +1,95 @@
+﻿@page "/product/edit/{id?}"
+@model OnlineShoping.Pages.Products.EditModel
+@{
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card-box">
+            @if (Model?.Product?.ProductId == null)
+            {
+                <h4 class="header-title m-t-0 m-b-30">فرم ایجاد لینک خبر</h4>
+            }
+            else
+            {
+                <h4 class="header-title m-t-0 m-b-30">فرم ویرایش لینک خبر</h4>
+            }
+
+            <form method="POST" id="frmContact">
+                <div class="form-group">
+                    @Html.HiddenFor(o => o.Product.ProductId)
+
+                    <label for="Url"> نام محصول *</label>
+                    <input type="text" name="Product.Name" parsley-trigger="change" required
+                           value="@Html.ValueFor(x => x.Product.Name)"
+                           placeholder=" نام محصول را وارد کنید" class="form-control" id="Url">
+                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
+                        @Html.ValidationMessageFor(x => x.Product.Name)
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="Url"> قیمت محصول *</label>
+                    <input type="text" name="Product.Price" parsley-trigger="change" required
+                           value="@Html.ValueFor(x => x.Product.Price)"
+                           placeholder=" قیمت محصول را وارد کنید" class="form-control" id="Url">
+                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
+                        @Html.ValidationMessageFor(x => x.Product.Price)
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="Url"> بارکد محصول *</label>
+                    <input type="text" name="Product.Barecode" parsley-trigger="change" required
+                           value="@Html.ValueFor(x => x.Product.Barecode)"
+                           placeholder="بارکد محصول را وارد کنید" class="form-control" id="Url">
+                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
+                        @Html.ValidationMessageFor(x => x.Product.Barecode)
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="Url"> تصویر محصول *</label>
+                    <input type="text" name="Product.Photo" parsley-trigger="change" required
+                           value="@Html.ValueFor(x => x.Product.Photo)"
+                           placeholder="تصویر محصول را وارد کنید" class="form-control" id="Url">
+                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
+                        @Html.ValidationMessageFor(x => x.Product.Photo)
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="Title"> توضیحات کوتاه *</label>
+                    <textarea type="text" dir="rtl" name="Product.Description" parsley-trigger="change" required
+                              value=""
+                              class="form-control" id="TilteText">@Html.ValueFor(x => x.Product.Description) </textarea>
+
+                    <p class="text-muted m-b-20 font-13 " style="color: red!important;">
+                        @Html.ValidationMessageFor(x => x.Product.Description)
+                    </p>
+                </div>
+
+                <div class="form-group text-right m-b-0">
+                    @if (Model?.Product?.ProductId == null)
+                    {
+                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                            <span>ایجاد</span>
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-primary waves-effect waves-light" type="submit" onclick="confirm('آیا از تغییرات بوجود آمده اطمینان دارید؟!')">
+                            <span>ویرایش</span>
+                        </button>
+                    }
+                    <button type="reset" onclick="history.go(-1); return false;" class="btn btn-default waves-effect waves-light m-l-5">
+                        لغو
+                    </button>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div><!-- end col -->
+
+</div>
+
+
