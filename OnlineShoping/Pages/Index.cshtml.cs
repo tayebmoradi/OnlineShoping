@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OnlineShoping.Pages
@@ -14,7 +14,7 @@ namespace OnlineShoping.Pages
 
         public void OnGet()
         {
-
-        }
+          
+        } 
     }
 }

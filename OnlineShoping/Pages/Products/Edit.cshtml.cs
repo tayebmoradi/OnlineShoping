@@ -33,21 +33,21 @@ namespace OnlineShoping.Pages.Products
 			Product = _productRepository.GetProductById(id);
 		}
 
-		public IActionResult OnPost()
+		public IActionResult OnPost(Product product)
 		{
 			if (ModelState.IsValid)
 			{
 				if (Photo != null)
 				{
-					if (Product.Photo != null)
+					if (product.Photo != null)
 					{
 						string FileFolder =
-						Path.Combine(webHostEnvironment.WebRootPath, "css", Product.Photo);
+						Path.Combine(webHostEnvironment.WebRootPath, "css", product.Photo);
 						System.IO.File.Delete(FileFolder);
 
 					}
-					Product.Photo = ProcessUploadFile();
-				}
+                    product.Photo = ProcessUploadFile();
+                }
 				if (Product.ProductId == 0)
 				{
 					Product = _productRepository.AddProduct(Product);
@@ -55,16 +55,17 @@ namespace OnlineShoping.Pages.Products
 				}
 				else
 				{
-
+                    
+                    
 					Product = _productRepository.UpdateProduct(Product);
 					return RedirectToPage("index");
 
 				}
 			}
-			return Page();
+            return RedirectToPage("index");
 
 
-		}
+        }
 		private string ProcessUploadFile()
 		{
 			string uniqueFileName = null;

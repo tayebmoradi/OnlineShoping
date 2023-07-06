@@ -1,6 +1,7 @@
 ﻿@page "/product/details/{id}"
 @model OnlineShoping.Pages.Products.DetailsModel
 @{
+    ViewData["Title"] = "اطلاعات بیشتر";
     var PhotoImg = "/css/" + (@Model.product.Photo ?? "noimage.jpg");
 }
 
