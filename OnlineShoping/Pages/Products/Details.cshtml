@@ -2,7 +2,7 @@
 @model OnlineShoping.Pages.Products.DetailsModel
 @{
     ViewData["Title"] = "اطلاعات بیشتر";
-    var PhotoImg = "/css/" + (@Model.product.Photo ?? "noimage.jpg");
+    var PhotoImg = "/img/" + (@Model.product.Photo ?? "noimage.jpg");
 }
 
 <div class="row">

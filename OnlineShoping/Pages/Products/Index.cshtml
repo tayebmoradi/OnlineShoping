@@ -26,10 +26,10 @@
     <button type="submit" class="btn btn-dark">ایجاد</button>
 </a>
 
-<div class="d-flex gap-1" style="height:100vh;">
+<div class="d-flex gap-1 col-lg-4 col-md-6" style="height:100vh;">
     @foreach (var item in Model.products)
     {
-        var PhotoImg = "/css/" + (@item.Photo ?? "noimage.jpg");
+        var PhotoImg = "/img/" + (@item.Photo ?? "noimage.jpg");
         <div class="product-list_ProductList__item__LiiNI" data-product-index="20">
             <a class="d-block pointer pos-relative bg-000 overflow-hidden grow-1 py-3 px-4 px-2-lg h-full-md styles_VerticalProductCard--hover__ud7aD" style="border:1px solid ; box-shadow:1px 2px 2px 2px" target="_blank">
                 <div class="">

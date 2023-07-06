@@ -42,7 +42,7 @@ namespace OnlineShoping.Pages.Products
 					if (product.Photo != null)
 					{
 						string FileFolder =
-						Path.Combine(webHostEnvironment.WebRootPath, "css", product.Photo);
+						Path.Combine(webHostEnvironment.WebRootPath, "img", product.Photo);
 						System.IO.File.Delete(FileFolder);
 
 					}
@@ -50,14 +50,14 @@ namespace OnlineShoping.Pages.Products
                 }
 				if (Product.ProductId == 0)
 				{
-					Product = _productRepository.AddProduct(Product);
+					Product = _productRepository.AddProduct(product);
 					return RedirectToPage("index");
 				}
 				else
 				{
                     
                     
-					Product = _productRepository.UpdateProduct(Product);
+					Product = _productRepository.UpdateProduct(product);
 					return RedirectToPage("index");
 
 				}
@@ -73,7 +73,7 @@ namespace OnlineShoping.Pages.Products
 			if (Photo != null)
 			{
 				string UploadsFolder =
-					Path.Combine(webHostEnvironment.WebRootPath, "css");
+					Path.Combine(webHostEnvironment.WebRootPath, "img");
 				uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
 				string filePath = Path.Combine(UploadsFolder, uniqueFileName);
 				using (var fileStream = new FileStream(filePath, FileMode.Create))
