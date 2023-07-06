@@ -31,3 +31,19 @@ body {
     margin-bottom: 60px;
     font-family: Vazir-Bold;
 }
+.styles_VerticalProductCard--hover__ud7aD:hover {
+    z-index: 1;
+    -webkit-filter: drop-shadow(0 1px 5px rgba(0,0,0,.2));
+    filter: drop-shadow(0 1px 5px rgba(0,0,0,.2));
+}
+
+a {
+    color: black !important;
+    text-decoration: none;
+}
+
+.breakpoint .text-body2-strong {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 2.17;
+}

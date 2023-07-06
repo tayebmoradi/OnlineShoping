@@ -22,6 +22,7 @@ namespace OnlineShoping.Pages.Products
             {
                 return RedirectToPage("NotFound");
             }
+            ViewData["Notification"]= product.Name;
             return Page();
            
         }

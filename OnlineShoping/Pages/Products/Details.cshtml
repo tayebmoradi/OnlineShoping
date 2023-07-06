@@ -2,9 +2,11 @@
 @model OnlineShoping.Pages.Products.DetailsModel
 @{
     ViewData["Title"] = "اطلاعات بیشتر";
+     var notification = ViewData["Notification"];
     var PhotoImg = "/img/" + (@Model.product.Photo ?? "noimage.jpg");
 }
 
+<p>@notification</p>
 <div class="row">
     <div class="col-5"><img src="@PhotoImg" width="500px"/></div>
     <div class="col-7">
