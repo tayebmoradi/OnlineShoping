@@ -69,17 +69,17 @@ namespace Services.Service
 
         public Product UpdateProduct(Product product)
         {
-            Product ProdtctId = Product.First(v => v.ProductId == product.ProductId);
-            if (ProdtctId != null)
+            Product prodtct = Product.First(v => v.ProductId == product.ProductId);
+            if (prodtct != null)
             {
-                ProdtctId.Name = product.Name;
-                ProdtctId.Barecode = product.Barecode;
-                ProdtctId.Price = product.Price;
-                ProdtctId.Photo = product.Photo;
-                ProdtctId.Description = product.Description;
+                prodtct.Name = product.Name;
+                prodtct.Barecode = product.Barecode;
+                prodtct.Price = product.Price;
+                prodtct.Photo = product.Photo;
+                prodtct.Description = product.Description;
             }
 
-            return ProdtctId;
+            return prodtct;
         }
 
 
